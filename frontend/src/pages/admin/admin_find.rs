@@ -6,7 +6,9 @@ pub fn find_by_id(
     id: String,
     vec_to_find: Vec<(String, StudentData)>,
 ) -> Vec<(String, StudentData)> {
-    let find_result = vec_to_find.into_iter().find(|(sid, _)| sid.clone() == id);
+    let find_result = vec_to_find
+        .into_iter()
+        .find(|(sid, _data)| sid.clone() == id);
 
     match find_result {
         Some(s) => vec![s],
