@@ -1,0 +1,124 @@
+.ad {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+.ad .header {
+  width: 100%;
+  height: max-content;
+  max-inline-size: none;
+  margin-inline: auto;
+  text-align: center;
+}
+.ad .header h1 {
+  font-size: var(--font-size-fluid-3);
+  font-weight: var(--font-weight-7);
+  max-inline-size: none;
+}
+.ad .header strong {
+  font-weight: bold;
+  letter-spacing: var(--font-letterspacing-3);
+}
+.ad .header > * {
+  margin-bottom: var(--size-fluid-1);
+}
+.ad .main {
+  margin-top: 1rem;
+  width: min(90%, 69rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+.ad .main .keys {
+  display: flex;
+  flex-direction: column;
+}
+.ad .find-box {
+  display: flex;
+  flex-direction: row;
+  column-gap: var(--size-fluid-2);
+}
+.ad .find-box input {
+  height: var(--size-fluid-5);
+  font-size: var(--font-size-fluid-1);
+  width: 80%;
+}
+.ad .find-box .find-custom-btn {
+  width: 20%;
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 0.3rem;
+}
+.ad .find-box .find-custom-btn > * {
+  flex-basis: 100%;
+}
+.ad .find-box .find-custom-btn .reset-btn {
+  width: 100%;
+}
+.ad .find-box .search-options {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-fluid-1);
+  font-weight: var(--font-weight-7);
+}
+.ad .find-box .search-options > * {
+  border: 0.1rem solid rgba(0, 0, 0, 0);
+  transition: border-color 200ms var(--ease-1);
+}
+.ad .find-box .search-options .find-selected {
+  border: 0.1rem solid var(--link);
+}
+.ad .find-btns {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-fluid-1);
+  margin-top: var(--size-fluid-1);
+  font-weight: var(--font-weight-7);
+}
+.ad .tables {
+  width: 100%;
+  margin-top: var(--size-fluid-1);
+  max-height: 20rem;
+  overflow-y: auto;
+  font-weight: var(--font-weight-5);
+}
+.ad .tables table {
+  width: inherit;
+  text-align: center;
+}
+.ad .tables th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-1);
+}
+.ad .tables .table-header {
+  background: var(--surface-1);
+  height: max-content;
+}
+.ad .tables .table-header > * {
+  height: 100%;
+}
+.ad .tables tr:nth-child(2n) td:nth-child(2n-1) {
+  background: var(--surface-2);
+}
+.ad .tables tr:nth-child(2n-1) td:nth-child(2n) {
+  background: var(--surface-2);
+}
+.ad .tables button {
+  width: 100%;
+  height: 100%;
+  background-color: none;
+  font-size: var(--font-size-fluid-1);
+  border-radius: 0px;
+  border: 0.1rem solid var(--surface-1);
+  transition: border 200ms var(--ease-1);
+}
+.ad .tables button:focus {
+  border: 0.1rem solid var(--link);
+}
+.ad .custom-btns {
+  margin-top: var(--size-fluid-2);
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--size-fluid-5);
+}

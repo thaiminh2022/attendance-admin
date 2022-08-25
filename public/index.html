@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Admin</title>
+
+    <!-- javascript -->
+    
+    <script type="module" src="./index.js"></script>
+
+    <!-- the props -->
+    <link rel="stylesheet" href="https://unpkg.com/open-props">
+
+
+    <!-- optional imports that use the props -->
+    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/open-props/buttons.min.css" /> -->
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+
+
+    <!-- stylesheet -->
+    <!-- <link data-trunk rel="css" href="./styles/reset.css"> -->
+    <link rel="stylesheet" href="/root-7a33eb1bcfd9b44b.css">
+    <link rel="stylesheet" href="/admin-957787f1d07978e3.css">
+    <link rel="stylesheet" href="/login-e61327e5bb63a73c.css">
+
+
+
+
+
+<link rel="preload" href="/frontend-c138f448a1df417d_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/frontend-c138f448a1df417d.js"></head>
+
+<body>
+
+
+
+<script type="module">import init from '/frontend-c138f448a1df417d.js';init('/frontend-c138f448a1df417d_bg.wasm');</script><script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
+    var poll_interval = 5000;
+    var reload_upon_connect = () => {
+        window.setTimeout(
+            () => {
+                // when we successfully reconnect, we'll force a
+                // reload (since we presumably lost connection to
+                // trunk due to it being killed, so it will have
+                // rebuilt on restart)
+                var ws = new WebSocket(url);
+                ws.onopen = () => window.location.reload();
+                ws.onclose = reload_upon_connect;
+            },
+            poll_interval);
+    };
+
+    var ws = new WebSocket(url);
+    ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.reload) {
+            window.location.reload();
+        }
+    };
+    ws.onclose = reload_upon_connect;
+})()
+</script></body></html>
