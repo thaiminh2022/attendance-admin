@@ -79,8 +79,14 @@ impl Component for AdminPage {
         };
 
         let base_classes: [(&str, Html); 2] = [
-            ("case-sensitive", html! {<i class="fi fi-bs-a"></i>}),
-            ("hard-search", html! {<i class="fi fi-rr-spa"></i>}),
+            (
+                "case-sensitive",
+                html! {<abbr title = "toggle case sensitive"><i class="fi fi-bs-a"></i></abbr>},
+            ),
+            (
+                "hard-search",
+                html! {<abbr title = "toggle hard-search"><i class="fi fi-rr-spa"></i></abbr>},
+            ),
         ];
 
         let find_options = |(index, (base_class, node)): (usize, &(&str, Html))| -> Html {
@@ -140,7 +146,10 @@ impl Component for AdminPage {
 
                             <div class="find-custom-btn">
                                 <button class="reset-btn" onclick = {on_reset_find}>
-                                    <i class="fi fi-sr-cross-circle"></i>
+                                    <abbr title = "Click to reset search">
+                                        <i class="fi fi-sr-cross-circle" alt ="reset icon"></i>
+                                    </abbr>
+
                                 </button>
 
                                 <div class="search-options">
@@ -167,16 +176,25 @@ impl Component for AdminPage {
                             <tr class ="table-header">
                                 <th>{"STT"}</th>
                                 <th>
-                                    <button onclick = {on_order_by_name} >{"Name 🔍"}</button>
+                                    <abbr title="Sort the content by student name">
+                                        <button onclick = {on_order_by_name} >{"Name"}</button>
+                                    </abbr>
                                 </th>
                                 <th>
-                                    <button onclick = {on_order_by_class} >{"Class 🔍"}</button>
+                                    <abbr title="Sort the content by student class">
+                                        <button onclick = {on_order_by_class} >{"Class"}</button>
+                                    </abbr>
                                 </th>
                                 <th>
-                                    <button onclick = {on_order_by_selforder} >{"Self Order🔍"}</button>
+                                    <abbr title="Sort the content by student class order">
+                                        <button onclick = {on_order_by_selforder} >{"Self Order"}</button>
+                                    </abbr>
                                 </th>
                                 <th>
-                                    <button onclick = {on_order_by_date} >{"Date 🔍"}</button>
+                                    <abbr title="Sort the content by check date">
+                                        <button onclick = {on_order_by_date} >{"Date"}</button>
+                                    </abbr>
+
                                 </th>
                             </tr>
 

@@ -1,4 +1,7 @@
+use super::super::super::bridge::log;
 use super::super::super::data::StudentData;
+
+use deunicode::deunicode;
 use itertools::Itertools;
 
 // Since id is unique for each person, case sensitive or soft search will not effect this search type
@@ -28,10 +31,18 @@ pub fn find_by_name(
             let mut data_name = data.name.clone();
             let mut search_name = name.clone();
 
+            // Format data ->
+            if soft_search {
+                data_name = deunicode(&data_name);
+                search_name = deunicode(&search_name);
+            }
+
             if case_sensitive == false {
                 data_name.make_ascii_uppercase();
                 search_name.make_ascii_uppercase();
             }
+
+            // Search logic
             if soft_search {
                 return data_name.contains(&search_name);
             }
@@ -55,14 +66,22 @@ pub fn find_by_class(
             let mut data_class = data.class.clone();
             let mut search_class = class.clone();
 
+            // Format data ->
+            if soft_search {
+                data_class = deunicode(&data_class);
+                search_class = deunicode(&search_class);
+            }
             if case_sensitive == false {
                 data_class.make_ascii_uppercase();
                 search_class.make_ascii_uppercase();
             }
+
+            // Search logic
             if soft_search {
                 return data_class.contains(&search_class);
             }
 
+            // Hard search
             data_class == search_class
         })
         .collect_vec();
@@ -82,6 +101,12 @@ pub fn find_by_date(
         .filter(|(_sid, data)| {
             let mut data_date = data.date.clone();
             let mut search_date = date.clone();
+
+            // Format data ->
+            if soft_search {
+                data_date = deunicode(&data_date);
+                search_date = deunicode(&search_date);
+            }
 
             if case_sensitive == false {
                 data_date.make_ascii_uppercase();
